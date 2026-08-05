@@ -1,4 +1,4 @@
-package com.example.mixin;
+package com.github.archangel_styx.mixin;
 
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
