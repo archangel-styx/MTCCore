@@ -3,7 +3,7 @@
 	"package": "com.github.archangel_styx.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"ExampleMixin"
+      "MTCCoreMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

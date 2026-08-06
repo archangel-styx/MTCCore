@@ -1,25 +1,24 @@
 {
 	"schemaVersion": 1,
-	"id": "styxpg",
+	"id": "mtccore",
 	"version": "${version}",
-	"name": "StyxPlayground",
-	"description": "A playground for me to learn Minecraft modding.",
+	"name": "Magic the Craftening Core",
+	"description": "Core Mod for Magic the Craftening.",
 	"authors": [
-		"Me!"
+		"Archangel-Styx",
+		"Cameron Williams"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/modid/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.github.archangel_styx.StyxPlayground"
+			"com.github.archangel_styx.MTCCore"
 		],
 		"client": [
-			"com.github.archangel_styx.client.StyxPlaygroundClient"
+			"com.github.archangel_styx.client.MTCCoreClient"
 		]
 	},
 	"mixins": [

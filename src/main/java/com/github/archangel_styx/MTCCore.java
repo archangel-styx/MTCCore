@@ -7,8 +7,8 @@ import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class StyxPlayground implements ModInitializer {
-	public static final String MOD_ID = "styx-pg";
+public class MTCCore implements ModInitializer {
+	public static final String MOD_ID = "mtccore";
 
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.

@@ -3,7 +3,7 @@
 	"package": "com.github.archangel_styx.client.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
-      "ExampleClientMixin"
+      "MTCCoreClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
