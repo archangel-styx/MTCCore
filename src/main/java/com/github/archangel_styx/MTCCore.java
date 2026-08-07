@@ -13,6 +13,7 @@ public class MTCCore implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		MTCItems.initialize();
 	}
 
 	public static Identifier id(String path) {

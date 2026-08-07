@@ -5,21 +5,17 @@ import net.minecraft.world.item.Item;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ItemCost implements SpellCostable<Map<Item, Integer>> {
+public class ItemCost implements SpellCostable {
 
-    private Map<Item, Integer> values = new HashMap<>();
+    private final Map<Item, Integer> values = new HashMap<>();
 
+    public ItemCost(Map<Item, Integer> items)
+    {
+        values.putAll(items);
+    }
+
+    @Override
     public Map<Item, Integer> getCost() {
         return this.values;
     };
-
-    public void addCost(Item item, int cost)
-    {
-        values.put(item, cost);
-    }
-
-    public void removeCost(Item item)
-    {
-        values.remove(item);
-    }
 }

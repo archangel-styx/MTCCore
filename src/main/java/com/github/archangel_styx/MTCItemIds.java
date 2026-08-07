@@ -9,6 +9,7 @@ public class MTCItemIds {
     public static final ResourceKey<Item> PLAYING_CARD = create("playing_card");
     public static final ResourceKey<Item> HEALTH_ITEM = create("health_item");
     public static final ResourceKey<Item> EXP_ITEM = create("exp_item");
+    public static final ResourceKey<Item> LIGHTNING_SPELL_ROD = create("lightning_spell_rod");
 
     public static ResourceKey<Item> create(String name) {
         return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MTCCore.MOD_ID, name));
