@@ -1,5 +1,8 @@
 package com.github.archangel_styx;
 
+import com.github.archangel_styx.components.MTCComponents;
+import com.github.archangel_styx.items.MTCItems;
+import com.github.archangel_styx.spells.Spells;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.resources.Identifier;
@@ -14,6 +17,8 @@ public class MTCCore implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		MTCItems.initialize();
+		MTCComponents.initialize();
+		Spells.initialize();
 	}
 
 	public static Identifier id(String path) {

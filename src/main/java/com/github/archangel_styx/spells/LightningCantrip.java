@@ -10,14 +10,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
-public class TestLightningCantrip extends CantripSpell {
-    public TestLightningCantrip()
+public class LightningCantrip extends CantripSpell {
+    public LightningCantrip()
     {
         super();
-        this.name = "Lightning Spell";
         this.description = "Zap your foes with Thor's fury.";
         this.castSpeed = 100;
         this.costs.add(new ExpCost(10));
+        this.rarity = Rarity.COMMON;
     }
 
     @Override
@@ -25,11 +25,10 @@ public class TestLightningCantrip extends CantripSpell {
     {
         BlockPos frontOfPlayer = user.blockPosition().relative(user.getDirection(), 10);
 
-        // Spawn the lightning bolt.
         LightningBolt lightningBolt = new LightningBolt(EntityTypes.LIGHTNING_BOLT, level);
         lightningBolt.setPos(new Vec3(frontOfPlayer));
         level.addFreshEntity(lightningBolt);
 
-        return InteractionResult.SUCCESS;
+        return InteractionResult.PASS;
     }
 }

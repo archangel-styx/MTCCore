@@ -1,3 +1,5 @@
 {
-  "item.mtccore.lightning_spell_rod": "Lightning Spell Rod"
+  "item.mtccore.lightning_cantrip": "Lightning Cantrip",
+  "item.mtccore.mystery_card": "Mystery Card",
+  "spellsTab.mtccore": "Spell Cards"
 }
