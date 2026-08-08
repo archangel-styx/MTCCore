@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Spell {
-    protected static String description;
-    protected Integer castSpeed;
-    protected SpellType spellType;
-    protected Rarity rarity;
+    protected String description = "A magical spell.";
+    protected SpellType spellType = SpellType.CANTRIP;
+    protected Rarity rarity = Rarity.COMMON;
+    protected Integer uses = 1;
 
     protected final List<SpellCostable> costs = new ArrayList<>();
 
@@ -28,4 +28,6 @@ public abstract class Spell {
     }
 
     public String getDescription() { return this.description; }
+
+    public Integer getUses() { return this.uses; }
 }

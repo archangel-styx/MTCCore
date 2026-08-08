@@ -1,5 +1,7 @@
 {
-  "item.mtccore.lightning_cantrip": "Lightning Cantrip",
   "item.mtccore.mystery_card": "Mystery Card",
+  "item.mtccore.shroud": "Shrouding Veil",
+  "item.mtccore.summon_lightning": "Summon Lightning",
+  "item.mtccore.the_hermit": "The Hermit",
   "spellsTab.mtccore": "Spell Cards"
 }

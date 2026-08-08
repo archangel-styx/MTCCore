@@ -1,7 +1,7 @@
 package com.github.archangel_styx.spells;
 
-public class MysteryCard extends CantripSpell {
-    public MysteryCard() {
+public class MysteryCardCantrip extends CantripSpell {
+    public MysteryCardCantrip() {
         this.description = "Unlimited potential.";
     }
 }

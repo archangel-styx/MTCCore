@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mtccore:item/art/the_hermit",
+    "layer1": "mtccore:item/cardframe/standard_stamped_unique",
+    "layer2": "mtccore:item/affinity/gold"
+  }
+}

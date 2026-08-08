@@ -1,6 +1,8 @@
 package com.github.archangel_styx.spells;
 
 public enum SpellType {
+    AURA,
     CANTRIP,
-    AURA
+    REFLEX,
+    RITUAL
 }

@@ -10,14 +10,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
-public class LightningCantrip extends CantripSpell {
-    public LightningCantrip()
+public class SummonLightningCantrip extends CantripSpell {
+    public SummonLightningCantrip()
     {
         super();
         this.description = "Zap your foes with Thor's fury.";
-        this.castSpeed = 100;
         this.costs.add(new ExpCost(10));
         this.rarity = Rarity.COMMON;
+        this.uses = 10;
     }
 
     @Override

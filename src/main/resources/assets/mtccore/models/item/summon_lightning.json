@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mtccore:item/art/mystery_card",
+    "layer0": "mtccore:item/art/summon_lightning",
     "layer1": "mtccore:item/cardframe/standard",
-    "layer2": "mtccore:item/affinity/gold"
+    "layer2": "mtccore:item/affinity/air"
   }
 }
