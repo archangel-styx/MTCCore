@@ -1,6 +1,7 @@
 package com.github.archangel_styx.items;
 
 import com.github.archangel_styx.MTCCore;
+import com.github.archangel_styx.WorldContext;
 import com.github.archangel_styx.components.MTCComponents;
 import com.github.archangel_styx.spells.Spell;
 import com.github.archangel_styx.spells.Spells;
@@ -21,7 +22,8 @@ public class SpellCard extends SpellCasterItem {
         Spell spell = Spells.REGISTRY.get(spellKey);
         MTCCore.LOGGER.info(spell.toString());
         MTCCore.LOGGER.info(spellKey);
-        props.durability(spell.getUses());
+        props.durability(1000);
+        props.useCooldown(spell.getCooldown());
         props.component(DataComponents.LORE, new ItemLore(List.of(Component.literal(spell.getDescription()))));
         props.component(MTCComponents.ACTIVE_SPELL, spellKey);
         super(props);
@@ -50,12 +52,7 @@ public class SpellCard extends SpellCasterItem {
         ItemStack stack = user.getItemInHand(hand);
         activeSpell = stack.get(MTCComponents.ACTIVE_SPELL);
         Spell spell = Spells.REGISTRY.get(activeSpell);
-
-        InteractionResult result = spell.castSpell(level, user, hand);
-
-        if (result == InteractionResult.PASS && stack.isDamageableItem() && !user.isCreative()) {
-            ItemUtil.damage(stack);
-        }
+        InteractionResult result = spell.castSpell(new WorldContext(level, user, hand));
 
         return result;
     }

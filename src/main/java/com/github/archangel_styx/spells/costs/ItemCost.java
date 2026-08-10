@@ -1,4 +1,4 @@
-package com.github.archangel_styx.spellcosts;
+package com.github.archangel_styx.spells.costs;
 
 import net.minecraft.world.item.Item;
 

@@ -1,9 +1,9 @@
-package com.github.archangel_styx.spellcosts;
+package com.github.archangel_styx.spells.costs;
 
-public class HealthCost implements SpellCostable {
+public class ExpCost implements SpellCostable {
     private final Integer value;
 
-    public HealthCost(Integer amount)
+    public ExpCost(Integer amount)
     {
         this.value = amount;
     }

@@ -1,5 +1,6 @@
 package com.github.archangel_styx.items;
 
+import com.github.archangel_styx.WorldContext;
 import com.github.archangel_styx.components.MTCComponents;
 import com.github.archangel_styx.spells.Spell;
 import com.github.archangel_styx.spells.Spells;
@@ -29,7 +30,7 @@ public class SpellCasterItem extends Item {
         activeSpell = stack.get(MTCComponents.ACTIVE_SPELL);
         Spell spell = Spells.REGISTRY.get(activeSpell);
 
-        InteractionResult result = spell.castSpell(level,user, hand);
+        InteractionResult result = spell.castSpell(new WorldContext(level, user, hand));
 
         return result;
     }
