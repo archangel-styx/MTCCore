@@ -11,8 +11,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemLore;
-import net.minecraft.world.level.Level;
-import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 import java.util.Random;
@@ -38,21 +36,5 @@ public class SpellCard extends SpellCasterItem {
     public void onCraftedBy(ItemStack stack, Player player) {
         foilChance(stack, player);
         super.onCraftedBy(stack, player);
-    }
-
-
-    @Override
-    public @NonNull InteractionResult use(Level level, @NonNull Player user, @NonNull InteractionHand hand) {
-        if (level.isClientSide()) {
-            return InteractionResult.PASS;
-        }
-
-        ItemStack stack = user.getItemInHand(hand);
-        activeSpell = stack.get(MTCComponents.ACTIVE_SPELL);
-        Spell spell = Spells.REGISTRY.get(activeSpell);
-        InteractionResult result = spell.castSpell(new WorldContext(level, user, hand));
-
-        user.swing(hand);
-        return result;
     }
 }

@@ -14,6 +14,6 @@ public class CantripBehavior implements CastBehavior {
 
         SpellEventScheduler.schedule(callback, context, context.spell().getSpeed());
 
-        return InteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS_SERVER;
     }
 }

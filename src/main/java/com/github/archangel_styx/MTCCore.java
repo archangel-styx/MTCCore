@@ -22,7 +22,6 @@ public class MTCCore implements ModInitializer {
 		MTCComponents.initialize();
 		Spells.initialize();
 		SpellEventScheduler.initialize();
-		ServerTickEvents.END_LEVEL_TICK.register(new SpellEventScheduler());
 	}
 
 	public static Identifier id(String path) {

@@ -22,7 +22,9 @@ public class SpellEventScheduler implements ServerTickEvents.EndLevelTick {
 
     public static void initialize()
     {
-        MTCCore.LOGGER.info("Initializing SpellEventScheduler.");
+        MTCCore.LOGGER.info("Initializing SpellEventScheduler...");
+        ServerTickEvents.END_LEVEL_TICK.register(new SpellEventScheduler());
+        MTCCore.LOGGER.info("SpellEventScheduler initialized!");
     }
 
     @Override
