@@ -1,7 +1,6 @@
 package com.github.archangel_styx.items;
 
-import com.github.archangel_styx.MTCCore;
-import com.github.archangel_styx.WorldContext;
+import com.github.archangel_styx.util.WorldContext;
 import com.github.archangel_styx.components.MTCComponents;
 import com.github.archangel_styx.spells.Spell;
 import com.github.archangel_styx.spells.Spells;
@@ -13,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.level.Level;
+import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 import java.util.Random;
@@ -20,8 +20,6 @@ import java.util.Random;
 public class SpellCard extends SpellCasterItem {
     public SpellCard(Properties props, String spellKey) {
         Spell spell = Spells.REGISTRY.get(spellKey);
-        MTCCore.LOGGER.info(spell.toString());
-        MTCCore.LOGGER.info(spellKey);
         props.durability(1000);
         props.useCooldown(spell.getCooldown());
         props.component(DataComponents.LORE, new ItemLore(List.of(Component.literal(spell.getDescription()))));
@@ -44,7 +42,7 @@ public class SpellCard extends SpellCasterItem {
 
 
     @Override
-    public InteractionResult use(Level level, Player user, InteractionHand hand) {
+    public @NonNull InteractionResult use(Level level, @NonNull Player user, @NonNull InteractionHand hand) {
         if (level.isClientSide()) {
             return InteractionResult.PASS;
         }
@@ -54,6 +52,7 @@ public class SpellCard extends SpellCasterItem {
         Spell spell = Spells.REGISTRY.get(activeSpell);
         InteractionResult result = spell.castSpell(new WorldContext(level, user, hand));
 
+        user.swing(hand);
         return result;
     }
 }

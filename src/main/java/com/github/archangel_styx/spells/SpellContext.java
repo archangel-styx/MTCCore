@@ -1,6 +1,6 @@
 package com.github.archangel_styx.spells;
 
-import com.github.archangel_styx.WorldContext;
+import com.github.archangel_styx.util.WorldContext;
 import com.github.archangel_styx.spells.subjectbehaviors.subjectables.Subjectable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;

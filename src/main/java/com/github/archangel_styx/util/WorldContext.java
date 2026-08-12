@@ -1,4 +1,4 @@
-package com.github.archangel_styx;
+package com.github.archangel_styx.util;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;

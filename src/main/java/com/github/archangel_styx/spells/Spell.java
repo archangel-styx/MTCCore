@@ -1,6 +1,6 @@
 package com.github.archangel_styx.spells;
 
-import com.github.archangel_styx.WorldContext;
+import com.github.archangel_styx.util.WorldContext;
 import com.github.archangel_styx.spells.costs.SpellCostable;
 import com.github.archangel_styx.spells.castbehaviors.CastBehavior;
 import com.github.archangel_styx.spells.subjectbehaviors.SubjectBehavior;
@@ -18,7 +18,7 @@ public class Spell {
     private final Rarity rarity;
     private final CastBehavior castBehavior;
     private final SubjectBehavior subjectBehavior;
-    private final double speed;
+    private final long speed;
     private final float cooldown;
 
     private final List<SpellCostable> costs;
@@ -62,6 +62,8 @@ public class Spell {
         return this.cooldown;
     }
 
+    public long getSpeed() { return this.speed; }
+
     public static class Builder {
         private final String name;
         private final String description;
@@ -71,7 +73,7 @@ public class Spell {
         private SubjectBehavior subjectBehavior;
         private List<SpellCostable> costs = new ArrayList<>();
         private final List<Function<SpellContext, InteractionResult>> effects = new ArrayList<>();
-        private double speed = 1.0;
+        private long speed = 0;
         private float cooldown = 1.0F;
 
         public Builder(String name, String description) {
@@ -115,8 +117,8 @@ public class Spell {
             this.effects.add(factory);
             return this;
         }
-
-        public Builder speed(Integer castingSpeed) {
+        /** @param castingSpeed in game ticks. */
+        public Builder speed(long castingSpeed) {
             this.speed = castingSpeed;
             return this;
         }

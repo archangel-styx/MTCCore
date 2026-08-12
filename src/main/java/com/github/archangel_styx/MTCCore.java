@@ -3,8 +3,10 @@ package com.github.archangel_styx;
 import com.github.archangel_styx.components.MTCComponents;
 import com.github.archangel_styx.items.MTCItems;
 import com.github.archangel_styx.spells.Spells;
+import com.github.archangel_styx.spells.SpellEventScheduler;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.resources.Identifier;
 
 import org.slf4j.Logger;
@@ -19,6 +21,8 @@ public class MTCCore implements ModInitializer {
 		MTCItems.initialize();
 		MTCComponents.initialize();
 		Spells.initialize();
+		SpellEventScheduler.initialize();
+		ServerTickEvents.END_LEVEL_TICK.register(new SpellEventScheduler());
 	}
 
 	public static Identifier id(String path) {

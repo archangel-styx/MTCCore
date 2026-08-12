@@ -6,7 +6,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 public class CostHandler {
-    public static boolean pay(SpellContext context) {
+    public static boolean isPaid(SpellContext context) {
         int failures = 0;
         Player user = context.player();
 
@@ -44,7 +44,7 @@ public class CostHandler {
         int max = stack.getMaxDamage();
         int current = stack.getDamageValue() + cost;
 
-        if (max - current <= cost )
+        if (max - current < cost )
         {
             stack.setDamageValue(max);
         }
