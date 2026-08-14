@@ -19,10 +19,10 @@ public class MTCItems {
     );
 
     public static final Item SHROUD = register(MTCItemIds.SHROUD, (props) -> {return new SpellCard(props, SpellKeys.SHROUD_AURA.toString()); }, new Item.Properties());
-    public static final Item SUMMON_LIGHTNING = register(MTCItemIds.SUMMON_LIGHTNING, (props) -> { return new SpellCard(props, SpellKeys.SUMMON_LIGHTNING_CANTRIP.toString()); }, new Item.Properties());
+    public static final Item SUMMON_LIGHTNING = register(MTCItemIds.SUMMON_LIGHTNING, (props) -> { return new SpellCard(props, SpellKeys.SUMMON_LIGHTNING.toString()); }, new Item.Properties());
     public static final Item THE_HERMIT = register(MTCItemIds.THE_HERMIT, (props) -> { return new SpellCard(props, SpellKeys.THE_HERMIT.toString()); }, new Item.Properties());
-    public static final Item MYSTERY_CARD = register(MTCItemIds.MYSTERY_CARD, (props) -> { return new SpellCard(props, SpellKeys.MYSTERY_CARD_CANTRIP.toString()); }, new Item.Properties());
-
+    public static final Item MYSTERY_CARD = register(MTCItemIds.MYSTERY_CARD, (props) -> { return new SpellCard(props, SpellKeys.MYSTERY_CARD.toString()); }, new Item.Properties());
+    public static final Item ROLLING_THUNDER = register(MTCItemIds.ROLLING_THUNDER, (props) -> { return new SpellCard(props, SpellKeys.ROLLING_THUNDER.toString()); }, new Item.Properties());
 
     public static void initialize()
     {
@@ -46,6 +46,7 @@ public class MTCItems {
                 output.accept(SHROUD);
                 output.accept(SUMMON_LIGHTNING);
                 output.accept(THE_HERMIT);
+                output.accept(ROLLING_THUNDER);
             })
             .build();
 }

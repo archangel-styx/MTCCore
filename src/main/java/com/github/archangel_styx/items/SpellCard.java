@@ -1,16 +1,16 @@
 package com.github.archangel_styx.items;
 
-import com.github.archangel_styx.util.WorldContext;
 import com.github.archangel_styx.components.MTCComponents;
+import com.github.archangel_styx.spells.ColorHelper;
 import com.github.archangel_styx.spells.Spell;
 import com.github.archangel_styx.spells.Spells;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.network.chat.Style;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemLore;
+import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 import java.util.Random;
@@ -19,7 +19,6 @@ public class SpellCard extends SpellCasterItem {
     public SpellCard(Properties props, String spellKey) {
         Spell spell = Spells.REGISTRY.get(spellKey);
         props.durability(1000);
-        props.useCooldown(spell.getCooldown());
         props.component(DataComponents.LORE, new ItemLore(List.of(Component.literal(spell.getDescription()))));
         props.component(MTCComponents.ACTIVE_SPELL, spellKey);
         super(props);
@@ -36,5 +35,12 @@ public class SpellCard extends SpellCasterItem {
     public void onCraftedBy(ItemStack stack, Player player) {
         foilChance(stack, player);
         super.onCraftedBy(stack, player);
+    }
+
+    @Override
+    public @NonNull Component getName(ItemStack itemStack) {
+        String spellKey = itemStack.get(MTCComponents.ACTIVE_SPELL);
+        Spell spell = Spells.REGISTRY.get(spellKey);
+        return Component.translatable("spell." + spellKey).setStyle(Style.EMPTY.withColor(ColorHelper.getColor(spell.getRarity())).withItalic(false));
     }
 }

@@ -6,6 +6,35 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 public class CostHandler {
+    public static boolean canPay(SpellContext context) {
+        int failures = 0;
+        Player user = context.player();
+
+        if (user.isCreative())
+        {
+            return true;
+        }
+
+        for (var c : context.spell().getCosts())
+        {
+            switch (c) {
+                case ExpCost xp -> {
+                    ItemStack stack = user.getItemInHand(context.hand());
+                    if (stack.getMaxDamage() < stack.getDamageValue() + (Integer) c.getCost())
+                    {
+                        failures++;
+                    }
+                }
+                case HealthCost hp -> MTCCore.LOGGER.info("HP COST.");
+                case ItemCost item -> MTCCore.LOGGER.info("Item COST.");
+                default -> {
+                    failures++;
+                }
+            };
+        };
+
+        return failures == 0;
+    }
     public static boolean isPaid(SpellContext context) {
         int failures = 0;
         Player user = context.player();

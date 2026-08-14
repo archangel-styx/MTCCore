@@ -1,5 +1,7 @@
 package com.github.archangel_styx.spells;
 
+import net.minecraft.ChatFormatting;
+
 public enum Rarity
 {
     COMMON,
@@ -7,3 +9,5 @@ public enum Rarity
     LEGENDARY,
     UNIQUE
 }
+
+

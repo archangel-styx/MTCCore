@@ -56,6 +56,10 @@ public class Spell {
         return this.costs;
     }
 
+    public Rarity getRarity() {
+        return this.rarity;
+    }
+
     public String getDescription() { return this.description; }
 
     public float getCooldown() {
@@ -67,7 +71,7 @@ public class Spell {
     public static class Builder {
         private final String name;
         private final String description;
-        private Rarity rarity;
+        private Rarity rarity = Rarity.COMMON;
         private SpellType spellType;
         private CastBehavior castBehavior;
         private SubjectBehavior subjectBehavior;

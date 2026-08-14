@@ -2,8 +2,8 @@
 	"schemaVersion": 1,
 	"id": "mtccore",
 	"version": "${version}",
-	"name": "Magic the Craftening Core",
-	"description": "Core Mod for Magic the Craftening.",
+	"name": "Mine the Craftening Core",
+	"description": "Core Mod for Mine the Craftening.",
 	"authors": [
 		"Archangel-Styx",
 		"Cameron Williams"
@@ -11,7 +11,7 @@
 	"contact": {
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
+	"icon": "assets/mtccore/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -22,9 +22,9 @@
 		]
 	},
 	"mixins": [
-		"modid.mixins.json",
+		"mtccore.mixins.json",
 		{
-			"config": "modid.client.mixins.json",
+			"config": "mtccore.client.mixins.json",
 			"environment": "client"
 		}
 	],
