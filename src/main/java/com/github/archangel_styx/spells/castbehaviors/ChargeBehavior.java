@@ -1,5 +1,6 @@
 package com.github.archangel_styx.spells.castbehaviors;
 
+import com.github.archangel_styx.MTCCore;
 import com.github.archangel_styx.spells.SpellContext;
 import com.github.archangel_styx.spells.SpellEventScheduler;
 import com.github.archangel_styx.spells.costs.CostHandler;
@@ -29,7 +30,17 @@ public class ChargeBehavior implements CastBehavior {
        {
            return InteractionResult.FAIL;
        }
-       SpellEventScheduler.schedule(callback, context, context.spell().getSpeed());
+       if(context.level().isClientSide())
+       {
+           player.stopUsingItem();
+           player.swing(player.getUsedItemHand(), true);
+           return InteractionResult.SUCCESS;
+       }
+
+        MTCCore.LOGGER.info("HIT");
+       SpellEventScheduler.schedule(callback, context, 0);
        return InteractionResult.SUCCESS;
     }
+
+
 }
