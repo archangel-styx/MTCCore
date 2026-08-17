@@ -9,7 +9,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.component.ItemLore;
 import org.jspecify.annotations.NonNull;
 
@@ -23,6 +22,7 @@ public class SpellCard extends SpellCasterItem {
         props.component(DataComponents.LORE, new ItemLore(List.of(Component.literal(spell.getDescription()))));
         props.component(MTCComponents.ACTIVE_SPELL, spellKey);
         super(props);
+        activeSpell = spellKey;
     }
 
     public void foilChance(ItemStack stack, Player player) {
@@ -40,8 +40,7 @@ public class SpellCard extends SpellCasterItem {
 
     @Override
     public @NonNull Component getName(ItemStack itemStack) {
-        String spellKey = itemStack.get(MTCComponents.ACTIVE_SPELL);
-        Spell spell = Spells.REGISTRY.get(spellKey);
-        return Component.translatable("spell." + spellKey).setStyle(Style.EMPTY.withColor(ColorHelper.getColor(spell.getRarity())).withItalic(false));
+        Spell spell = Spells.REGISTRY.get(activeSpell);
+        return Component.translatable("spell." + activeSpell).setStyle(Style.EMPTY.withColor(ColorHelper.getColor(spell.getRarity())).withItalic(false));
     }
 }

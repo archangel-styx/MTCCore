@@ -11,11 +11,11 @@ import java.util.function.Function;
 
 public class ChargeBehavior implements CastBehavior {
     public InteractionResult cast(SpellContext context, Function<SpellContext, InteractionResult> callback) {
-        Player player = context.player();
        if (!CostHandler.canPay(context)) {
            return InteractionResult.FAIL;
        }
 
+       Player player = context.player();
        if (!player.isUsingItem()) {
            player.startUsingItem(context.hand());
            return InteractionResult.CONSUME;
@@ -37,7 +37,6 @@ public class ChargeBehavior implements CastBehavior {
            return InteractionResult.SUCCESS;
        }
 
-        MTCCore.LOGGER.info("HIT");
        SpellEventScheduler.schedule(callback, context, 0);
        return InteractionResult.SUCCESS;
     }

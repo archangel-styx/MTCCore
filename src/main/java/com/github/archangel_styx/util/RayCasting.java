@@ -49,7 +49,6 @@ public class RayCasting {
             if (result == null) { result = castRay(looker, eyePos, eyePos.add(lookAngle.yRot(-spread).xRot(-spread).scale(maxDist))); }
         }
 
-
         return result;
     }
 
@@ -58,7 +57,7 @@ public class RayCasting {
                 looker,
                 eyePos,
                 targetPos,
-                looker.getBoundingBox().expandTowards(targetPos.subtract(eyePos)).inflate(1.0),
+                looker.getBoundingBox().expandTowards(targetPos.subtract(eyePos)).inflate(5.0),
                 Entity::canBeHitByProjectile,
                 0.0
         );

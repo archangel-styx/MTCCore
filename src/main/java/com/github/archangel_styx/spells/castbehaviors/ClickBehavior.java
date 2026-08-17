@@ -6,7 +6,7 @@ import com.github.archangel_styx.spells.SpellEventScheduler;
 import net.minecraft.world.InteractionResult;
 import java.util.function.Function;
 
-public class CantripBehavior implements CastBehavior {
+public class ClickBehavior implements CastBehavior {
     public InteractionResult cast(SpellContext context, Function<SpellContext, InteractionResult> callback) {
         if (!CostHandler.isPaid(context)) {
             return InteractionResult.FAIL;

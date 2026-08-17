@@ -1,8 +1,9 @@
 {
   "spell.mtccore:mystery_card": "Mystery Card",
-  "spell.mtccore:shroud": "Shrouding Veil",
+  "spell.mtccore:shroud_aura": "Shrouding Veil",
   "spell.mtccore:summon_lightning": "Summon Lightning",
   "spell.mtccore:the_hermit": "The Hermit",
   "spell.mtccore:rolling_thunder": "Rolling Thunder",
+  "spell.mtccore:spitfire": "Spitfire",
   "spellsTab.mtccore": "Spell Cards"
 }

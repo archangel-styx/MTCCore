@@ -68,6 +68,8 @@ public class Spell {
 
     public long getSpeed() { return this.speed; }
 
+    public CastBehavior getCastBehavior() { return this.castBehavior; }
+
     public static class Builder {
         private final String name;
         private final String description;
@@ -77,7 +79,7 @@ public class Spell {
         private SubjectBehavior subjectBehavior;
         private List<SpellCostable> costs = new ArrayList<>();
         private final List<Function<SpellContext, InteractionResult>> effects = new ArrayList<>();
-        private long speed = 0;
+        private long speed = 1;
         private float cooldown = 1.0F;
 
         public Builder(String name, String description) {
@@ -121,7 +123,8 @@ public class Spell {
             this.effects.add(factory);
             return this;
         }
-        /** @param castingSpeed in game ticks. */
+        /** @param castingSpeed in game ticks.
+         *  Functions differently based on cast behavior. */
         public Builder speed(long castingSpeed) {
             this.speed = castingSpeed;
             return this;
